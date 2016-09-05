@@ -73,6 +73,9 @@ browobj.Run "chrome -url https://www.google.com/finance?q=" & STOCKS(i)
 WScript.Sleep 450
 browobj.Run "chrome -url https://secure.sigfig.com/l/stock-quote/" & STOCKS(i)
 WScript.Sleep 450
+browobj.Run "chrome -url http://www.marketwatch.com/investing/stock/" & STOCKS(i)
+
+
 Set browobj= Nothing
 
 
