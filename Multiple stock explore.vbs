@@ -87,7 +87,17 @@ browobj.Run "chrome -url http://www.barchart.com/plmodules/?module=cashFlow&symb
 WScript.Sleep 450
 browobj.Run "chrome -url http://investorplace.com/stock-quotes/" & STOCKS(i) & "-stock-quote/" 
 WScript.Sleep 450
+browobj.Run "chrome -url http://www.dataroma.com/m/stock.php?sym=" & STOCKS(i)
+WScript.Sleep 450
+browobj.Run "chrome -url https://stockrow.com/" & STOCKS(i) & "/snapshots"
+WScript.Sleep 450
+browobj.Run "chrome -url http://www.insidermonkey.com/search/all?q=" & STOCKS(i)
+WScript.Sleep 450
 browobj.Run "chrome -url http://www.stockta.com/cgi-bin/analysis.pl?symb=" & STOCKS(i) & "&cobrand=&mode=stock" 
+WScript.Sleep 450
+browobj.Run "chrome -url https://www.stockrover.com/markets/cash_flow/" & STOCKS(i)
+WScript.Sleep 450
+browobj.Run "chrome -url https://www.quandl.com/search?query=" & STOCKS(i)
 
 
 
