@@ -77,8 +77,6 @@ browobj.Run "chrome -url http://www.marketwatch.com/investing/stock/" & STOCKS(i
 WScript.Sleep 450
 browobj.Run "chrome -url http://finviz.com/quote.ashx?t=" & STOCKS(i)
 WScript.Sleep 450
-browobj.Run "chrome -url http://stocktwits.com/symbol/" & STOCKS(i) & "?q="
-WScript.Sleep 450
 browobj.Run "chrome -url https://www.zacks.com/stock/quote/" & STOCKS(i) & "?q=" & STOCKS(i)
 WScript.Sleep 450
 browobj.Run "chrome -url http://www.bloomberg.com/quote/" & STOCKS(i) & ":US" 
@@ -98,6 +96,10 @@ WScript.Sleep 450
 browobj.Run "chrome -url https://www.stockrover.com/markets/cash_flow/" & STOCKS(i)
 WScript.Sleep 450
 browobj.Run "chrome -url https://www.quandl.com/search?query=" & STOCKS(i)
+WScript.Sleep 450
+browobj.Run "chrome -url http://stocktwits.com/symbol/" & STOCKS(i) & "?q="
+WScript.Sleep 450
+browobj.Run "chrome -url https://stockflare.com/stocks/" & STOCKS(i) & ?key=ticker
 
 
 
