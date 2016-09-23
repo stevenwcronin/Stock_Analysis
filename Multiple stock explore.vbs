@@ -99,7 +99,7 @@ browobj.Run "chrome -url https://www.quandl.com/search?query=" & STOCKS(i)
 WScript.Sleep 450
 browobj.Run "chrome -url http://stocktwits.com/symbol/" & STOCKS(i) & "?q="
 WScript.Sleep 450
-browobj.Run "chrome -url https://stockflare.com/stocks/" & STOCKS(i) & ?key=ticker
+browobj.Run "chrome -url https://stockflare.com/stocks/" & STOCKS(i) & "?key=ticker"
 
 
 
