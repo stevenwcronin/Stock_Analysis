@@ -44,6 +44,8 @@ browobj.Run "chrome -url http://finance.yahoo.com/echarts?s=" & STOCKS(i)
 WScript.Sleep 150
 browobj.Run "chrome -url http://financials.morningstar.com/ratios/r.html?t=" & STOCKS(i)
 WScript.Sleep 150
+browobj.Run "chrome -url http://seekingalpha.com/symbol/" & STOCKS(i) & "/news"
+WScript.Sleep 450
 browobj.Run "chrome -url http://caps.fool.com/Ticker/" & STOCKS(i) & "/EarningsGrowthRates.aspx"
 WScript.Sleep 450
 browobj.Run "chrome -url https://stockrow.com/" & STOCKS(i) & "/snapshots"
