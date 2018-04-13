@@ -9,6 +9,9 @@ If SS = "" Then
 Else
     
 End If
+' NEW CODE HERE
+' NEW CODE HERE
+SS =Replace(SS," ","%20%",1,-1)
 
 
 STOCKS = SPLIT(SS, ",")
