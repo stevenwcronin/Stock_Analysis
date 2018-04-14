@@ -1,7 +1,7 @@
 Dim browobj
 
 SS = InputBox("What are you considering buying?", _
-    "Analyze Which Stocks?")
+    "Analyze Which PRODUCTS?")
 
 
 If SS = "" Then
@@ -14,16 +14,16 @@ End If
 SS =Replace(SS," ","+",1,-1)
 
 
-STOCKS = SPLIT(SS, ",")
+PRODUCTS = SPLIT(SS, ",")
 
-NUMBER_OF_STOCKS =   (UBound(STOCKS))
+NUMBER_OF_PRODUCTS =   (UBound(PRODUCTS))
 
-' Wscript.Echo "You are interested in " & NUMBER_OF_STOCKS+1 & " stocks.  " & vbCrLf & vbCrLf & (NUMBER_OF_STOCKS+1)*16  & " web pages will be opened in total." & vbCrLf  & vbCrLf & "I hope your computer can handle it!! ;)"
+' Wscript.Echo "You are interested in " & NUMBER_OF_PRODUCTS+1 & " PRODUCTS.  " & vbCrLf & vbCrLf & (NUMBER_OF_PRODUCTS+1)*16  & " web pages will be opened in total." & vbCrLf  & vbCrLf & "I hope your computer can handle it!! ;)"
 
 
 
 'intAnswer = _
-'    Msgbox("You are interested in " & NUMBER_OF_STOCKS+1 & " stocks.  "  & vbCrLf & vbCrLf & (NUMBER_OF_STOCKS+1)*17  & " web pages will be opened in total."  & vbCrLf &  vbCrLf  & vbCrLf & vbCrLf  &  "Are you sure your computer can handle it??" , _
+'    Msgbox("You are interested in " & NUMBER_OF_PRODUCTS+1 & " PRODUCTS.  "  & vbCrLf & vbCrLf & (NUMBER_OF_PRODUCTS+1)*17  & " web pages will be opened in total."  & vbCrLf &  vbCrLf  & vbCrLf & vbCrLf  &  "Are you sure your computer can handle it??" , _
 '    vbYesNo , "Can your computer handle it??")
 
 intAnswer = vbYes
@@ -32,24 +32,30 @@ If intAnswer = vbYes Then
     
 
 
-For i = 0 To NUMBER_OF_STOCKS
- ' Wscript.Echo STOCKS(i)
+For i = 0 To NUMBER_OF_PRODUCTS
+ ' Wscript.Echo PRODUCTS(i)
 WScript.Sleep 5
-CURRENT_STRING = STOCKS(i)
+CURRENT_STRING = PRODUCTS(i)
 WScript.Sleep 5
 FIRST =  Left(CURRENT_STRING, 1)
 WScript.Sleep 450
 Set browobj = CreateObject("WScript.Shell") 
 WScript.Sleep 450
-browobj.Run "chrome -url -new-window https://www.amazon.com/s/&field-keywords=" & STOCKS(i)
+browobj.Run "chrome -url -new-window https://www.amazon.com/s/&field-keywords=" & PRODUCTS(i)
 WScript.Sleep 450
-browobj.Run "chrome -url https://express.google.com/u/0/s?q=" & STOCKS(i)
+browobj.Run "chrome -url https://express.google.com/u/0/s?q=" & PRODUCTS(i)
 WScript.Sleep 150
-browobj.Run "chrome -url https://www.google.com/search?&tbm=shop&q=" & STOCKS(i)
+browobj.Run "chrome -url https://www.google.com/search?&tbm=shop&q=" & PRODUCTS(i)
+WScript.Sleep 150
+browobj.Run "chrome -url https://www.google.com/search?&tbm=shop&q=" & PRODUCTS(i)
+WScript.Sleep 150
+browobj.Run "chrome -url https://www.ebay.com/sch/" & PRODUCTS(i)
+
+
+
+
+
 Set browobj= Nothing
-
-
-
 Next
 
 
