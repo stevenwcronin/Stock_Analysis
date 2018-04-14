@@ -1,7 +1,7 @@
 Dim browobj
 
 SS = InputBox("Enter the stock symbols you are interested in separated by commas:", _
-    "Analyze Which Stocks?")
+    "Look at the price action for which stocks?")
 
 
 If SS = "" Then
@@ -28,29 +28,36 @@ intAnswer = vbYes
 If intAnswer = vbYes Then
     
 WScript.Sleep 450
-Set browobj = CreateObject("WScript.Shell") 
 
-browobj.Run "chrome -url https://finance.yahoo.com/quotes/" & SS
+
+Set browobj = CreateObject("WScript.Shell") 
+'browobj.Run "chrome -url -new-window http://stockcharts.com/h-sc/ui?s=$SPX" & SS
+browobj.Run "chrome -url -new-window https://finance.yahoo.com/quotes/" & SS
+
+
 
 
 For i = 0 To NUMBER_OF_STOCKS
- ' Wscript.Echo STOCKS(i)
+' Wscript.Echo STOCKS(i)
 WScript.Sleep 5
 CURRENT_STRING = STOCKS(i)
 WScript.Sleep 5
 FIRST =  Left(CURRENT_STRING, 1)
-
-
 WScript.Sleep 450
+WScript.Sleep 150
+browobj.Run "chrome -url http://stockcharts.com/h-sc/ui?s=" & STOCKS(i)
+WScript.Sleep 150
 browobj.Run "chrome -url http://finance.yahoo.com/echarts?s=" & STOCKS(i)
 WScript.Sleep 150
-browobj.Run "chrome -url https://stockrow.com/" & STOCKS(i) & "/snapshots"
-WScript.Sleep 450
-browobj.Run "chrome -url http://www.stockta.com/cgi-bin/analysis.pl?symb=" & STOCKS(i) & "&cobrand=&mode=stock" 
-WScript.Sleep 450
-browobj.Run "chrome -url http://finviz.com/quote.ashx?t=" & STOCKS(i)
-WScript.Sleep 450
-browobj.Run "chrome -url https://stockflare.com/stocks/" & STOCKS(i) & ".o"
+
+
+'browobj.Run "chrome -url http://www.stockta.com/cgi-bin/analysis.pl?symb=" & STOCKS(i) & "&cobrand=&mode=stock" 
+'WScript.Sleep 450
+'browobj.Run "chrome -url https://stockrow.com/" & STOCKS(i) & "/snapshots"
+'WScript.Sleep 450
+'browobj.Run "chrome -url http://finviz.com/quote.ashx?t=" & STOCKS(i)
+'WScript.Sleep 450
+'browobj.Run "chrome -url https://stockflare.com/stocks/" & STOCKS(i) & ".o"
 
 
 
