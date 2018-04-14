@@ -61,26 +61,23 @@ browobj.Run "chrome -url https://www.aliexpress.com/wholesale?&SearchText=" & PR
 WScript.Sleep 150
 browobj.Run "chrome -url https://www.walmart.com/search/?query=" & PRODUCTSAMZN(i)
 WScript.Sleep 150
-browobj.Run "chrome -url https://www.etsy.com/search?q=" & PRODUCTSAMZN(i)
-WScript.Sleep 150
 browobj.Run "chrome -url https://www.wish.com/search/" & PRODUCTSAMZN(i)
 WScript.Sleep 150
 browobj.Run "chrome -url http://www.alibaba.com/trade/search?&SearchText=" & PRODUCTS(i)
-WScript.Sleep 150
-browobj.Run "chrome -url https://www.lightinthebox.com/index.php?&" & PRODUCTS(i)
 
-WScript.Sleep 150
-browobj.Run "chrome -url https://www.producthunt.com/search?q=" & PRODUCTS(i)
-
+'WScript.Sleep 150
+'browobj.Run "chrome -url https://www.lightinthebox.com/index.php?&" & PRODUCTS(i)
+'WScript.Sleep 150
+'browobj.Run "chrome -url https://www.etsy.com/search?q=" & PRODUCTSAMZN(i)
+'WScript.Sleep 150
+'WScript.Sleep 150
+'browobj.Run "chrome -url https://www.producthunt.com/search?q=" & PRODUCTS(i)
 
 
 'WScript.Sleep 150
 'browobj.Run "chrome -url https://orderacme.com/products?Search=" & PRODUCTS(i)
 'WScript.Sleep 150
 'browobj.Run "chrome -url https://curbsideexpress.gianteagle.com/store/27391278/#/search/" & PRODUCTS(i)
-
-
-
 
 
 
