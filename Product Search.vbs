@@ -1,20 +1,21 @@
 Dim browobj
 
-SS = InputBox("What are you considering buying?", _
+P = InputBox("What are you considering buying?", _
     "Analyze Which PRODUCTS?")
 
 
-If SS = "" Then
+If P = "" Then
     Wscript.Quit
 Else
     
 End If
 ' NEW CODE HERE
 ' NEW CODE HERE
-SS =Replace(SS," ","+",1,-1)
+PP =Replace(P," ","+",1,-1)
+PPAMZN =Replace(P," ","%20",1,-1)
 
-
-PRODUCTS = SPLIT(SS, ",")
+PRODUCTS = SPLIT(PP, ",")
+PRODUCTSAMZN = SPLIT(PPAMZN, ",")
 
 NUMBER_OF_PRODUCTS =   (UBound(PRODUCTS))
 
@@ -33,7 +34,8 @@ If intAnswer = vbYes Then
 
 
 For i = 0 To NUMBER_OF_PRODUCTS
- ' Wscript.Echo PRODUCTS(i)
+ Wscript.Echo PRODUCTS(i)
+ Wscript.Echo PRODUCTSAMZN(i)
 WScript.Sleep 5
 CURRENT_STRING = PRODUCTS(i)
 WScript.Sleep 5
@@ -41,7 +43,7 @@ FIRST =  Left(CURRENT_STRING, 1)
 WScript.Sleep 450
 Set browobj = CreateObject("WScript.Shell") 
 WScript.Sleep 450
-browobj.Run "chrome -url -new-window https://www.amazon.com/s/&field-keywords=" & PRODUCTS(i)
+browobj.Run "chrome -url -new-window https://www.amazon.com/s/&field-keywords=" & PRODUCTSAMZN(i)
 WScript.Sleep 450
 browobj.Run "chrome -url https://express.google.com/u/0/s?q=" & PRODUCTS(i)
 WScript.Sleep 150
