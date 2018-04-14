@@ -1,7 +1,7 @@
 Dim browobj
 
 P = InputBox("What are you considering buying?", _
-    "Analyze Which PRODUCTS?")
+    "Search for what Products?")
 
 
 If P = "" Then
