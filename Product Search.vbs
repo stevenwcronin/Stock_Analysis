@@ -34,8 +34,8 @@ If intAnswer = vbYes Then
 
 
 For i = 0 To NUMBER_OF_PRODUCTS
- Wscript.Echo PRODUCTS(i)
- Wscript.Echo PRODUCTSAMZN(i)
+' Wscript.Echo PRODUCTS(i)
+' Wscript.Echo PRODUCTSAMZN(i)
 WScript.Sleep 5
 CURRENT_STRING = PRODUCTS(i)
 WScript.Sleep 5
