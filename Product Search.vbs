@@ -52,6 +52,15 @@ WScript.Sleep 150
 browobj.Run "chrome -url https://www.google.com/search?&tbm=shop&q=" & PRODUCTS(i)
 WScript.Sleep 150
 browobj.Run "chrome -url https://www.ebay.com/sch/" & PRODUCTS(i)
+WScript.Sleep 150
+browobj.Run "chrome -url https://www.samsclub.com/sams/search/searchResults.jsp?searchTerm=" & PRODUCTS(i)
+WScript.Sleep 150
+browobj.Run "chrome -url https://orderacme.com/products?Search=" & PRODUCTS(i)
+WScript.Sleep 150
+browobj.Run "chrome -url https://curbsideexpress.gianteagle.com/store/27391278/#/search/" & PRODUCTS(i)
+
+
+
 
 
 
