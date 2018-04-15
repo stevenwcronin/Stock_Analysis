@@ -49,7 +49,7 @@ browobj.Run "chrome -url https://express.google.com/u/0/s?q=" & PRODUCTS(i)
 WScript.Sleep 150
 browobj.Run "chrome -url https://www.google.com/search?&tbm=shop&q=" & PRODUCTS(i)
 WScript.Sleep 150
-browobj.Run "chrome -url https://www.google.com/search?&tbm=shop&q=" & PRODUCTS(i)
+browobj.Run "chrome -url https://www.google.com/search?tbm=shop&tbs=vw:l,local_avail:1&q=" & PRODUCTS(i)
 WScript.Sleep 150
 browobj.Run "chrome -url https://www.ebay.com/sch/" & PRODUCTS(i)
 WScript.Sleep 150
