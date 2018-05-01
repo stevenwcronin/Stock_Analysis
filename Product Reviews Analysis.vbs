@@ -11,48 +11,46 @@ Else
 End If
 ' NEW CODE HERE
 ' NEW CODE HERE
-PP =Replace(P," ","+",1,-1)
-PPAMZN =Replace(P," ","%20",1,-1)
+PP     = Replace(P,"//","/",1,-1)
+PPAMZN = Replace(P,"//","/",1,-1)
 
-PRODUCTS = SPLIT(PP, ",")
-PRODUCTSAMZN = SPLIT(PPAMZN, ",")
+PRODUCTS     = SPLIT(PP, "/")
+PRODUCTSAMZN = SPLIT(PPAMZN, "/")
 
-NUMBER_OF_PRODUCTS =   (UBound(PRODUCTS))
+END_OF_STRING_COUNT =   (UBound(PRODUCTS))
 
-' Wscript.Echo "You are interested in " & NUMBER_OF_PRODUCTS+1 & " PRODUCTS.  " & vbCrLf & vbCrLf & (NUMBER_OF_PRODUCTS+1)*16  & " web pages will be opened in total." & vbCrLf  & vbCrLf & "I hope your computer can handle it!! ;)"
+' Wscript.Echo "You are interested in " & END_OF_STRING_COUNT+1 & " PRODUCTS.  " & vbCrLf & vbCrLf & (END_OF_STRING_COUNT+1)*16  & " web pages will be opened in total." & vbCrLf  & vbCrLf & "I hope your computer can handle it!! ;)"
 
 
 
 'intAnswer = _
-'    Msgbox("You are interested in " & NUMBER_OF_PRODUCTS+1 & " PRODUCTS.  "  & vbCrLf & vbCrLf & (NUMBER_OF_PRODUCTS+1)*17  & " web pages will be opened in total."  & vbCrLf &  vbCrLf  & vbCrLf & vbCrLf  &  "Are you sure your computer can handle it??" , _
+'    Msgbox("You are interested in " & END_OF_STRING_COUNT+1 & " PRODUCTS.  "  & vbCrLf & vbCrLf & (END_OF_STRING_COUNT+1)*17  & " web pages will be opened in total."  & vbCrLf &  vbCrLf  & vbCrLf & vbCrLf  &  "Are you sure your computer can handle it??" , _
 '    vbYesNo , "Can your computer handle it??")
 
 intAnswer = vbYes
 
 If intAnswer = vbYes Then
-    
 
+Wscript.Echo END_OF_STRING_COUNT 
+Wscript.Echo PRODUCTS(END_OF_STRING_COUNT)
 
-For i = 0 To NUMBER_OF_PRODUCTS
-' Wscript.Echo PRODUCTS(i)
-' Wscript.Echo PRODUCTSAMZN(i)
-WScript.Sleep 5
-CURRENT_STRING = PRODUCTS(i)
-WScript.Sleep 5
-FIRST =  Left(CURRENT_STRING, 1)
 WScript.Sleep 450
 Set browobj = CreateObject("WScript.Shell") 
 WScript.Sleep 450
-browobj.Run "chrome -url -new-window https://www.amazon.com/s/&field-keywords=" & PRODUCTSAMZN(i)
+browobj.Run "chrome -url -new-window https://www.amazon.com/dps/&field-keywords=" & PRODUCTSAMZN(END_OF_STRING_COUNT)
 WScript.Sleep 450
-browobj.Run "chrome -url https://reviewmeta.com/amazon/" & PRODUCTS(i)
+browobj.Run "chrome -url -new-window https://www.amazon.com/dp/" & PRODUCTSAMZN(END_OF_STRING_COUNT)
+WScript.Sleep 450
+browobj.Run "chrome -url https://www.fakespot.com" ' & "/product/" & PRODUCTSAMZN(END_OF_STRING_COUNT)
 WScript.Sleep 150
-browobj.Run "chrome -url https://camelcamelcamel.com/" & PRODUCTS(i)
+browobj.Run "chrome -url https://reviewmeta.com/amazon/" & PRODUCTSAMZN(END_OF_STRING_COUNT)
 WScript.Sleep 150
-browobj.Run "chrome -url https://www.fakespot.com/product/" & PRODUCTS(i)
+browobj.Run "chrome -url https://camelcamelcamel.com/" ' & PRODUCTSAMZN(END_OF_STRING_COUNT)
+WScript.Sleep 150
+
 
 Set browobj= Nothing
-Next
+
 
 
 
