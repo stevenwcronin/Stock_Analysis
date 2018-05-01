@@ -21,8 +21,6 @@ END_OF_STRING_COUNT =   (UBound(PRODUCTS))
 
 ' Wscript.Echo "You are interested in " & END_OF_STRING_COUNT+1 & " PRODUCTS.  " & vbCrLf & vbCrLf & (END_OF_STRING_COUNT+1)*16  & " web pages will be opened in total." & vbCrLf  & vbCrLf & "I hope your computer can handle it!! ;)"
 
-
-
 'intAnswer = _
 '    Msgbox("You are interested in " & END_OF_STRING_COUNT+1 & " PRODUCTS.  "  & vbCrLf & vbCrLf & (END_OF_STRING_COUNT+1)*17  & " web pages will be opened in total."  & vbCrLf &  vbCrLf  & vbCrLf & vbCrLf  &  "Are you sure your computer can handle it??" , _
 '    vbYesNo , "Can your computer handle it??")
@@ -31,11 +29,13 @@ intAnswer = vbYes
 
 If intAnswer = vbYes Then
 
-Wscript.Echo END_OF_STRING_COUNT 
-Wscript.Echo PRODUCTS(END_OF_STRING_COUNT)
-
+' Wscript.Echo END_OF_STRING_COUNT 
+' Wscript.Echo PRODUCTS(END_OF_STRING_COUNT)
 WScript.Sleep 450
+
 Set browobj = CreateObject("WScript.Shell") 
+' NEED TO JUST BE ABLE TO OPEN UP THE CUT AND PASTED PRODUCT URL FROM AMAZON BELOW... HOW?
+' browobj.Run "chrome -url -new-window & P(1)
 WScript.Sleep 450
 browobj.Run "chrome -url -new-window https://www.amazon.com/dps/&field-keywords=" & PRODUCTSAMZN(END_OF_STRING_COUNT)
 WScript.Sleep 450
@@ -50,8 +50,6 @@ WScript.Sleep 150
 
 
 Set browobj= Nothing
-
-
 
 
 Else
