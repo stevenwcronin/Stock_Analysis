@@ -43,7 +43,7 @@ FIRST =  Left(CURRENT_STRING, 1)
 WScript.Sleep 450
 Set browobj = CreateObject("WScript.Shell") 
 WScript.Sleep 450
-browobj.Run "chrome -url -new-window https://www.amazon.com/s/&field-keywords=" & PRODUCTSAMZN(i)
+browobj.Run "chrome -url -new-window https://www.amazon.com/s?k=" & PRODUCTSAMZN(i)
 WScript.Sleep 450
 browobj.Run "chrome -url https://express.google.com/u/0/s?q=" & PRODUCTS(i)
 WScript.Sleep 150
@@ -75,7 +75,7 @@ browobj.Run "chrome -url http://www.alibaba.com/trade/search?&SearchText=" & PRO
 
 
 'WScript.Sleep 150
-'browobj.Run "chrome -url https://orderacme.com/products?Search=" & PRODUCTS(i)
+'browobj.Run "chrome -url https://www.acmestores.com/products?Search=" & PRODUCTS(i)
 'WScript.Sleep 150
 'browobj.Run "chrome -url https://curbsideexpress.gianteagle.com/store/27391278/#/search/" & PRODUCTS(i)
 
