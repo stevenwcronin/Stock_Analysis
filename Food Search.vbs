@@ -46,7 +46,7 @@ WScript.Sleep 450
 
 browobj.Run "chrome -url -new-window https://www.ebay.com/sch/" & PRODUCTS(i)
 WScript.Sleep 150
-browobj.Run "chrome -url https://www.amazon.com/s/&field-keywords=" & PRODUCTSAMZN(i)
+browobj.Run "chrome -url https://www.amazon.com/s?k=" & PRODUCTSAMZN(i)
 WScript.Sleep 450
 browobj.Run "chrome -url https://www.samsclub.com/sams/search/searchResults.jsp?searchTerm=" & PRODUCTS(i)
 WScript.Sleep 150
@@ -63,7 +63,7 @@ browobj.Run "chrome -url https://www.google.com/search?tbm=shop&tbs=vw:l,local_a
 WScript.Sleep 150
 browobj.Run "chrome -url https://curbsideexpress.gianteagle.com/store/27391278/#/search/" & PRODUCTS(i)
 WScript.Sleep 150
-browobj.Run "chrome -url https://orderacme.com/products?Search=" & PRODUCTS(i)
+browobj.Run "chrome -url https://www.acmestores.com/products?Search=" & PRODUCTS(i)
 WScript.Sleep 150
 
 
